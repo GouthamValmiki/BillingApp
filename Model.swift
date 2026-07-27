@@ -2,7 +2,7 @@
 //  Model.swift
 //  BillingApp
 //
-//  Created by Goutham on 27/07/26.
+//  MVC — Model Layer: SwiftData Entities
 //
 
 import Foundation

@@ -2,7 +2,7 @@
 //  CustomerDetailView.swift
 //  BillingApp
 //
-//  Neumorphic UI Redesign — Customer Detail & Ledger
+//  MVC — View Layer: Customer Detail & Ledger (Pure Presentation)
 //
 
 import SwiftUI
@@ -22,18 +22,10 @@ struct CustomerDetailView: View {
             
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 20) {
-                    // Profile Card
                     profileCard
-                    
-                    // Action Buttons
                     actionButtons
-                    
-                    // Quick Stats
                     quickStats
-                    
-                    // Transaction Ledger
                     transactionLedger
-                    
                     Spacer(minLength: 40)
                 }
                 .padding(.top, 16)
@@ -48,9 +40,8 @@ struct CustomerDetailView: View {
             Button("Cancel", role: .cancel) { paymentAmount = "" }
             Button("Save") {
                 if let amt = Double(paymentAmount) {
-                    let p = Transaction(amount: amt, details: "Payment Received", isCreditAddition: false)
-                    customer.transactions?.append(p)
-                    customer.totalCredit -= amt
+                    let ctrl = CustomerController()
+                    ctrl.recordPayment(customer: customer, amount: amt)
                     paymentAmount = ""
                 }
             }
@@ -67,7 +58,6 @@ struct CustomerDetailView: View {
     private var profileCard: some View {
         NeuCard(padding: 20) {
             HStack(spacing: 16) {
-                // Avatar
                 ZStack {
                     Circle()
                         .fill(NeuTheme.greenAccent.opacity(0.15))
@@ -104,7 +94,6 @@ struct CustomerDetailView: View {
             
             NeuDivider()
             
-            // Credit Balance
             HStack {
                 VStack(alignment: .leading, spacing: 2) {
                     Text("Credit Balance")
@@ -145,67 +134,44 @@ struct CustomerDetailView: View {
     // MARK: - Quick Stats
     
     private var quickStats: some View {
-        let sorted = (customer.transactions ?? []).sorted(by: { $0.date > $1.date })
-        let totalBilled = sorted.filter { $0.isCreditAddition }.reduce(0.0) { $0 + $1.amount }
-        let totalPaid = sorted.filter { !$0.isCreditAddition }.reduce(0.0) { $0 + $1.amount }
-        let billCount = sorted.filter { $0.isCreditAddition }.count
+        let transactions = customer.transactions ?? []
+        let totalBilled = BillCalculator.totalBilled(transactions: transactions)
+        let totalPaid = BillCalculator.totalPaid(transactions: transactions)
+        let billCount = BillCalculator.billCount(transactions: transactions)
         
         return HStack(spacing: 12) {
-            // Total Billed
-            VStack(spacing: 8) {
-                NeuCircleIcon(systemName: "doc.text.fill", size: 40, iconSize: 16, accentColor: NeuTheme.orangeAccent)
-                Text("₹\(String(format: "%.0f", totalBilled))")
-                    .font(.system(size: 15, weight: .bold, design: .rounded))
-                Text("Billed")
-                    .font(.system(size: 11, weight: .medium))
-                    .foregroundColor(.secondary)
-            }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 14)
-            .neuRaised(radius: NeuTheme.cornerRadius)
-            
-            // Total Paid
-            VStack(spacing: 8) {
-                NeuCircleIcon(systemName: "banknote.fill", size: 40, iconSize: 16, accentColor: NeuTheme.greenAccent)
-                Text("₹\(String(format: "%.0f", totalPaid))")
-                    .font(.system(size: 15, weight: .bold, design: .rounded))
-                Text("Paid")
-                    .font(.system(size: 11, weight: .medium))
-                    .foregroundColor(.secondary)
-            }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 14)
-            .neuRaised(radius: NeuTheme.cornerRadius)
-            
-            // Bills Count
-            VStack(spacing: 8) {
-                NeuCircleIcon(systemName: "number.fill", size: 40, iconSize: 16, accentColor: NeuTheme.blueAccent)
-                Text("\(billCount)")
-                    .font(.system(size: 15, weight: .bold, design: .rounded))
-                Text("Bills")
-                    .font(.system(size: 11, weight: .medium))
-                    .foregroundColor(.secondary)
-            }
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 14)
-            .neuRaised(radius: NeuTheme.cornerRadius)
+            statBlock(icon: "doc.text.fill", value: "₹\(String(format: "%.0f", totalBilled))", label: "Billed", accentColor: NeuTheme.orangeAccent)
+            statBlock(icon: "banknote.fill", value: "₹\(String(format: "%.0f", totalPaid))", label: "Paid", accentColor: NeuTheme.greenAccent)
+            statBlock(icon: "number.fill", value: "\(billCount)", label: "Bills", accentColor: NeuTheme.blueAccent)
         }
         .padding(.horizontal, NeuTheme.padding)
+    }
+    
+    private func statBlock(icon: String, value: String, label: String, accentColor: Color) -> some View {
+        VStack(spacing: 8) {
+            NeuCircleIcon(systemName: icon, size: 40, iconSize: 16, accentColor: accentColor)
+            Text(value)
+                .font(.system(size: 15, weight: .bold, design: .rounded))
+            Text(label)
+                .font(.system(size: 11, weight: .medium))
+                .foregroundColor(.secondary)
+        }
+        .frame(maxWidth: .infinity)
+        .padding(.vertical, 14)
+        .neuRaised(radius: NeuTheme.cornerRadius)
     }
     
     // MARK: - Transaction Ledger
     
     private var transactionLedger: some View {
-        let sorted = (customer.transactions ?? []).sorted(by: { $0.date > $1.date })
+        let sorted = BillCalculator.sortedTransactions(transactions: customer.transactions ?? [])
         
         return VStack(spacing: 0) {
-            // Section header
             NeuSectionHeader(title: "Transaction Ledger", icon: "list.bullet.rectangle.fill")
                 .padding(.horizontal, NeuTheme.padding)
                 .padding(.bottom, 8)
             
             if sorted.isEmpty {
-                // Empty state
                 VStack(spacing: 12) {
                     NeuCircleIcon(systemName: "tray.fill", size: 56, iconSize: 24, accentColor: .secondary)
                     Text("No transactions yet")
@@ -232,7 +198,6 @@ struct CustomerDetailView: View {
     
     private func transactionRow(_ t: Transaction) -> some View {
         HStack(spacing: 14) {
-            // Icon
             ZStack {
                 Circle()
                     .fill(NeuTheme.baseColor)
@@ -245,7 +210,6 @@ struct CustomerDetailView: View {
                     .foregroundColor(t.isCreditAddition ? NeuTheme.redAccent : NeuTheme.greenAccent)
             }
             
-            // Details
             VStack(alignment: .leading, spacing: 3) {
                 Text(t.isCreditAddition ? "Bill Generated" : "Payment Received")
                     .font(.system(size: 14, weight: .semibold, design: .rounded))
@@ -263,7 +227,6 @@ struct CustomerDetailView: View {
             
             Spacer()
             
-            // Amount
             Text(t.isCreditAddition ? "+₹\(String(format: "%.2f", t.amount))" : "-₹\(String(format: "%.2f", t.amount))")
                 .font(.system(size: 15, weight: .bold, design: .rounded))
                 .foregroundColor(t.isCreditAddition ? NeuTheme.redAccent : NeuTheme.greenAccent)
