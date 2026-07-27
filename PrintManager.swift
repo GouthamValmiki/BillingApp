@@ -2,7 +2,7 @@
 //  PrintManager.swift
 //  BillingApp
 //
-//  Created by Goutham on 27/07/26.
+//  Neumorphic UI Redesign — Enhanced Print Template
 //
 
 import SwiftUI
@@ -23,22 +23,131 @@ class PrintManager {
         <html>
         <head>
         <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        h1 { color: #2E7D32; border-bottom: 2px solid #2E7D32; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        td { padding: 6px; border-bottom: 1px dashed #ccc; }
-        .total { font-size: 18px; font-weight: bold; color: #C62828; margin-top: 20px; }
+            * { margin: 0; padding: 0; box-sizing: border-box; }
+            body {
+                font-family: 'Segoe UI', Arial, sans-serif;
+                padding: 30px;
+                color: #333;
+                background: #fff;
+            }
+            .header {
+                text-align: center;
+                padding-bottom: 20px;
+                border-bottom: 3px solid #2E7D32;
+                margin-bottom: 20px;
+            }
+            .header h1 {
+                color: #2E7D32;
+                font-size: 28px;
+                letter-spacing: 1px;
+                margin-bottom: 4px;
+            }
+            .header .subtitle {
+                color: #666;
+                font-size: 13px;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+            }
+            .customer-info {
+                background: #f5f5f5;
+                border-radius: 10px;
+                padding: 14px 18px;
+                margin-bottom: 20px;
+                border-left: 4px solid #2E7D32;
+            }
+            .customer-info p {
+                font-size: 14px;
+                margin: 3px 0;
+                color: #444;
+            }
+            .customer-info strong {
+                color: #2E7D32;
+            }
+            .items-section {
+                margin-bottom: 20px;
+            }
+            .items-section pre {
+                font-family: 'Courier New', monospace;
+                font-size: 13px;
+                line-height: 1.6;
+                color: #333;
+                background: #fafafa;
+                padding: 14px;
+                border-radius: 8px;
+                border: 1px dashed #ccc;
+            }
+            .total-section {
+                background: linear-gradient(135deg, #2E7D32, #43A047);
+                border-radius: 12px;
+                padding: 18px 20px;
+                margin-top: 20px;
+                text-align: center;
+            }
+            .total-section .label {
+                color: rgba(255,255,255,0.85);
+                font-size: 13px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-bottom: 4px;
+            }
+            .total-section .amount {
+                color: #fff;
+                font-size: 28px;
+                font-weight: bold;
+            }
+            .footer {
+                text-align: center;
+                margin-top: 24px;
+                padding-top: 16px;
+                border-top: 1px dashed #ccc;
+            }
+            .footer p {
+                color: #888;
+                font-size: 12px;
+                margin: 3px 0;
+            }
+            .footer .thank-you {
+                color: #2E7D32;
+                font-size: 14px;
+                font-weight: bold;
+                margin-top: 6px;
+            }
+            .watermark {
+                text-align: center;
+                margin-top: 10px;
+                color: #ddd;
+                font-size: 10px;
+                letter-spacing: 2px;
+            }
         </style>
         </head>
         <body>
-        <h1>Fertilizer & Seeds Store</h1>
-        <p><strong>Bill To:</strong> \(customerName)</p>
-        <p><strong>Date:</strong> \(Date().formatted(date: .long, time: .shortened))</p>
-        <hr>
-        <pre style="font-family: monospace;">\(cleanDetails)</pre>
-        <div class="total">TOTAL BILL AMOUNT: $\(String(format: "%.2f", amount))</div>
-        <hr>
-        <p>Thank you for supporting local agriculture!</p>
+            <div class="header">
+                <h1>🌿 Fertilizer & Seeds Store</h1>
+                <div class="subtitle">Quality Agricultural Products</div>
+            </div>
+            
+            <div class="customer-info">
+                <p><strong>Bill To:</strong> \(customerName)</p>
+                <p><strong>Date:</strong> \(Date().formatted(date: .long, time: .shortened))</p>
+                <p><strong>Invoice #:</strong> \(UUID().uuidString.prefix(8).uppercased())</p>
+            </div>
+            
+            <div class="items-section">
+                <pre>\(cleanDetails)</pre>
+            </div>
+            
+            <div class="total-section">
+                <div class="label">Total Bill Amount</div>
+                <div class="amount">₹\(String(format: "%.2f", amount))</div>
+            </div>
+            
+            <div class="footer">
+                <p>Thank you for supporting local agriculture!</p>
+                <p class="thank-you">🌿 AgriBill — Smart Billing for Farmers</p>
+            </div>
+            
+            <div class="watermark">GENERATED BY AGRIBILL</div>
         </body>
         </html>
         """
