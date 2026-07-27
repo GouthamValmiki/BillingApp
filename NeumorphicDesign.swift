@@ -261,12 +261,13 @@ struct NeuTextField: View {
     @Binding var text: String
     var icon: String? = nil
     var keyboardType: UIKeyboardType = .default
+    var borderColor: Color? = nil
     
     var body: some View {
         HStack(spacing: 10) {
             if let icon = icon {
                 Image(systemName: icon)
-                    .foregroundColor(.gray)
+                    .foregroundColor(borderColor != nil ? borderColor! : .gray)
                     .font(.system(size: 16))
             }
             TextField(placeholder, text: $text)
@@ -279,6 +280,10 @@ struct NeuTextField: View {
         .cornerRadius(NeuTheme.cornerRadiusSmall)
         .shadow(color: NeuTheme.shadowDark, radius: 3, x: -3, y: -3)
         .shadow(color: NeuTheme.shadowLight, radius: 3, x: 3, y: 3)
+        .overlay(
+            RoundedRectangle(cornerRadius: NeuTheme.cornerRadiusSmall)
+                .stroke(borderColor ?? Color.clear, lineWidth: borderColor != nil ? 2 : 0)
+        )
     }
 }
 

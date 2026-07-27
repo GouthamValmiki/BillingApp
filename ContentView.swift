@@ -18,6 +18,15 @@ struct ContentView: View {
     @State private var searchText = ""
     @State private var showSearch = false
     
+    // Validation states
+    @State private var nameError: String? = nil
+    @State private var phoneError: String? = nil
+    
+    // Computed: is the form valid?
+    private var isFormValid: Bool {
+        nameError == nil && phoneError == nil && !newName.isEmpty && newPhone.count == 10
+    }
+    
     private var filteredCustomers: [Customer] {
         if searchText.isEmpty {
             return customers
@@ -242,6 +251,47 @@ struct ContentView: View {
         }
     }
     
+    // MARK: - Validation Helpers
+    
+    private func validateName(_ value: String) {
+        if value.isEmpty {
+            nameError = nil
+            return
+        }
+        // Only letters and spaces allowed — no numbers or special chars
+        let regex = try! NSRegularExpression(pattern: "[0-9]", options: [])
+        let matches = regex.matches(in: value, options: [], range: NSRange(location: 0, length: value.utf16.count))
+        if matches.count > 0 {
+            nameError = "⚠️ Name should not contain numbers"
+        } else {
+            // Check for special characters (allow only letters & spaces)
+            let hasSpecialChars = value.unicodeScalars.filter { !CharacterSet.letters.contains($0) && !CharacterSet.whitespaces.contains($0) }.count > 0
+            if hasSpecialChars {
+                nameError = "⚠️ Name should only contain letters"
+            } else {
+                nameError = nil
+            }
+        }
+    }
+    
+    private func validatePhone(_ value: String) {
+        if value.isEmpty {
+            phoneError = nil
+            return
+        }
+        // Only digits allowed
+        let hasNonDigits = value.unicodeScalars.filter { !CharacterSet.decimalDigits.contains($0) }.count > 0
+        if hasNonDigits {
+            phoneError = "⚠️ Phone number should only contain digits"
+        } else if value.count < 10 {
+            phoneError = "⚠️ Phone number must be exactly 10 digits (\(value.count)/10)"
+        } else if value.count > 10 {
+            phoneError = "⚠️ Phone number must be exactly 10 digits (too many)"
+        } else {
+            phoneError = nil
+        }
+    }
+    
     // MARK: - Add Customer Sheet
     
     private var addCustomerSheet: some View {
@@ -257,9 +307,94 @@ struct ContentView: View {
                         .font(.system(size: 22, weight: .bold, design: .rounded))
                         .foregroundColor(NeuTheme.greenAccent)
                     
-                    VStack(spacing: 16) {
-                        NeuTextField(placeholder: "Customer Name", text: $newName, icon: "person.fill")
-                        NeuTextField(placeholder: "Phone Number", text: $newPhone, icon: "phone.fill", keyboardType: .phonePad)
+                    VStack(spacing: 4) {
+                        // Name field
+                        NeuTextField(placeholder: "Customer Name", text: $newName, icon: "person.fill", borderColor: nameError != nil ? NeuTheme.redAccent : nil)
+                            .onChange(of: newName) { oldValue, newValue in
+                                // Strip numbers from name in real-time
+                                let filtered = newValue.unicodeScalars.filter { 
+                                    CharacterSet.letters.contains($0) || CharacterSet.whitespaces.contains($0)
+                                }
+                                let filteredString = String(filtered)
+                                if filteredString != newValue {
+                                    newName = filteredString
+                                }
+                                validateName(newName)
+                            }
+                        
+                        // Name error message
+                        if let nameError = nameError {
+                            HStack(spacing: 6) {
+                                Image(systemName: "exclamationmark.triangle.fill")
+                                    .font(.system(size: 12, weight: .bold))
+                                    .foregroundColor(NeuTheme.redAccent)
+                                Text(nameError)
+                                    .font(.system(size: 12, weight: .semibold, design: .rounded))
+                                    .foregroundColor(NeuTheme.redAccent)
+                                Spacer()
+                            }
+                            .padding(.horizontal, 14)
+                            .transition(.move(edge: .leading).combined(with: .opacity))
+                        }
+                        
+                        Spacer().frame(height: 12)
+                        
+                        // Phone field
+                        NeuTextField(placeholder: "Phone Number (10 digits)", text: $newPhone, icon: "phone.fill", keyboardType: .numberPad, borderColor: phoneError != nil ? NeuTheme.redAccent : (newPhone.count == 10 ? NeuTheme.greenAccent : nil))
+                            .onChange(of: newPhone) { oldValue, newValue in
+                                // Strip non-digits from phone in real-time
+                                let filtered = newValue.unicodeScalars.filter { CharacterSet.decimalDigits.contains($0) }
+                                let filteredString = String(filtered)
+                                if filteredString != newValue {
+                                    newPhone = filteredString
+                                }
+                                // Limit to max 10 digits
+                                if newPhone.count > 10 {
+                                    newPhone = String(newPhone.prefix(10))
+                                }
+                                validatePhone(newPhone)
+                            }
+                        
+                        // Phone error message
+                        if let phoneError = phoneError {
+                            HStack(spacing: 6) {
+                                Image(systemName: "exclamationmark.triangle.fill")
+                                    .font(.system(size: 12, weight: .bold))
+                                    .foregroundColor(NeuTheme.redAccent)
+                                Text(phoneError)
+                                    .font(.system(size: 12, weight: .semibold, design: .rounded))
+                                    .foregroundColor(NeuTheme.redAccent)
+                                Spacer()
+                            }
+                            .padding(.horizontal, 14)
+                            .transition(.move(edge: .leading).combined(with: .opacity))
+                        }
+                        
+                        // Phone digit counter (shows progress to 10 digits)
+                        if !newPhone.isEmpty && phoneError == nil && newPhone.count < 10 {
+                            HStack(spacing: 4) {
+                                Spacer()
+                                Text("\(newPhone.count)/10 digits")
+                                    .font(.system(size: 11, weight: .medium, design: .rounded))
+                                    .foregroundColor(.secondary)
+                            }
+                            .padding(.horizontal, 14)
+                        }
+                        
+                        // Success indicator when phone is valid
+                        if newPhone.count == 10 && phoneError == nil {
+                            HStack(spacing: 6) {
+                                Image(systemName: "checkmark.circle.fill")
+                                    .font(.system(size: 12, weight: .bold))
+                                    .foregroundColor(NeuTheme.greenAccent)
+                                Text("Valid phone number ✓")
+                                    .font(.system(size: 12, weight: .semibold, design: .rounded))
+                                    .foregroundColor(NeuTheme.greenAccent)
+                                Spacer()
+                            }
+                            .padding(.horizontal, 14)
+                            .transition(.move(edge: .leading).combined(with: .opacity))
+                        }
                     }
                     .padding(.horizontal, NeuTheme.padding)
                     
@@ -270,20 +405,24 @@ struct ContentView: View {
                             let c = Customer(name: newName, phone: newPhone)
                             context.insert(c)
                             newName = ""; newPhone = ""
+                            nameError = nil; phoneError = nil
                             showingAddCustomer = false
                         }
-                        .disabled(newName.isEmpty || newPhone.isEmpty)
-                        .opacity(newName.isEmpty || newPhone.isEmpty ? 0.5 : 1.0)
+                        .disabled(!isFormValid)
+                        .opacity(isFormValid ? 1.0 : 0.4)
                         
                         NeuSoftButton(title: "Cancel", accentColor: .secondary) {
                             showingAddCustomer = false
                             newName = ""; newPhone = ""
+                            nameError = nil; phoneError = nil
                         }
                     }
                     .padding(.horizontal, NeuTheme.padding)
                     .padding(.bottom, 20)
                 }
                 .padding(.top, 20)
+                .animation(.spring(response: 0.3, dampingFraction: 0.8), value: nameError)
+                .animation(.spring(response: 0.3, dampingFraction: 0.8), value: phoneError)
             }
         }
     }
