@@ -6,15 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		6D80C9723017322B006A98A1 /* BillingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C9713017322B006A98A1 /* BillingAppApp.swift */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXFileReference section */
-		6D80C955301730D4006A98A1 /* BillingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BillingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6D80C9713017322B006A98A1 /* BillingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingAppApp.swift; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		6D80C957301730D4006A98A1 /* BillingApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
@@ -38,7 +29,6 @@
 			isa = PBXGroup;
 			children = (
 				6D80C957301730D4006A98A1 /* BillingApp */,
-				6D80C9713017322B006A98A1 /* BillingAppApp.swift */,
 				6D80C956301730D4006A98A1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -126,7 +116,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D80C9723017322B006A98A1 /* BillingAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
