@@ -487,7 +487,7 @@ struct CreateBillView: View {
             details: billDetailsString
         )
         
-        dismiss()
+//        dismiss()
     }
 }
 
