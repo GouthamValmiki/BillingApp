@@ -186,6 +186,7 @@ struct NeuButton: View {
     var title: String
     var icon: String? = nil
     var gradient: LinearGradient = NeuTheme.greenGradient
+    var shadowColor: Color = NeuTheme.greenAccent
     var foregroundColor: Color = .white
     var fontSize: CGFloat = 16
     var action: () -> Void
@@ -208,7 +209,7 @@ struct NeuButton: View {
             .background(
                 RoundedRectangle(cornerRadius: NeuTheme.cornerRadius)
                     .fill(gradient)
-                    .shadow(color: gradient.colors.last?.opacity(0.4) ?? .black.opacity(0.3), radius: isPressed ? 2 : 6, x: 0, y: isPressed ? 2 : 4)
+                    .shadow(color: shadowColor.opacity(0.4), radius: isPressed ? 2 : 6, x: 0, y: isPressed ? 2 : 4)
             )
         }
         .scaleEffect(isPressed ? 0.97 : 1.0)

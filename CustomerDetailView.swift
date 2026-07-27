@@ -135,7 +135,7 @@ struct CustomerDetailView: View {
                 showingBill = true
             }
             
-            NeuButton(title: "Payment", icon: "indianrupeesign.circle.fill", gradient: NeuTheme.blueGradient, fontSize: 15) {
+            NeuButton(title: "Payment", icon: "indianrupeesign.circle.fill", gradient: NeuTheme.blueGradient, shadowColor: NeuTheme.blueAccent, fontSize: 15) {
                 showingPayment = true
             }
         }
