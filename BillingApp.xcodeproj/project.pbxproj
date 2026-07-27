@@ -6,13 +6,42 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		6D80C957301730D4006A98A1 /* BillingApp */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = BillingApp;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
+/* Begin PBXBuildFile section */
+		6D80C96630173123006A98A1 /* Customer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C96530173123006A98A1 /* Customer.swift */; };
+		6D80C967B30173144006A98A1 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C967A30173144006A98A1 /* Product.swift */; };
+		6D80C967C30173144006A98A1 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C967D30173144006A98A1 /* Transaction.swift */; };
+		6D80C96830173144006A98A1 /* PrintManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C96730173144006A98A1 /* PrintManager.swift */; };
+		6D80C97530173250006A98A1 /* LineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C975A30173250006A98A1 /* LineItem.swift */; };
+		6D80C97830173260006A98A1 /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C97730173260006A98A1 /* ValidationService.swift */; };
+		6D80C97A30173270006A98A1 /* BillCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C97930173270006A98A1 /* BillCalculator.swift */; };
+		6D80C96A301731C4006A98A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C969301731C4006A98A1 /* ContentView.swift */; };
+		6D80C980301732A0006A98A1 /* AddCustomerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C97F301732A0006A98A1 /* AddCustomerSheet.swift */; };
+		6D80C96E301731F4006A98A1 /* CustomerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C96D301731F4006A98A1 /* CustomerDetailView.swift */; };
+		6D80C97030173208006A98A1 /* CreateBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C96F30173208006A98A1 /* CreateBillView.swift */; };
+		6D80C97430173245006A98A1 /* NeumorphicDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C97330173245006A98A1 /* NeumorphicDesign.swift */; };
+		6D80C9723017322B006A98A1 /* BillingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C9713017322B006A98A1 /* BillingAppApp.swift */; };
+		6D80C97C30173280006A98A1 /* CustomerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C97B30173280006A98A1 /* CustomerController.swift */; };
+		6D80C97E30173290006A98A1 /* BillController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C97D30173290006A98A1 /* BillController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6D80C955301730D4006A98A1 /* BillingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BillingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D80C96530173123006A98A1 /* Customer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Customer.swift; sourceTree = "<group>"; };
+		6D80C967A30173144006A98A1 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		6D80C967D30173144006A98A1 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		6D80C96730173144006A98A1 /* PrintManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintManager.swift; sourceTree = "<group>"; };
+		6D80C975A30173250006A98A1 /* LineItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineItem.swift; sourceTree = "<group>"; };
+		6D80C97730173260006A98A1 /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
+		6D80C97930173270006A98A1 /* BillCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCalculator.swift; sourceTree = "<group>"; };
+		6D80C969301731C4006A98A1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		6D80C97F301732A0006A98A1 /* AddCustomerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomerSheet.swift; sourceTree = "<group>"; };
+		6D80C96D301731F4006A98A1 /* CustomerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerDetailView.swift; sourceTree = "<group>"; };
+		6D80C96F30173208006A98A1 /* CreateBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBillView.swift; sourceTree = "<group>"; };
+		6D80C97330173245006A98A1 /* NeumorphicDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphicDesign.swift; sourceTree = "<group>"; };
+		6D80C9713017322B006A98A1 /* BillingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingAppApp.swift; sourceTree = "<group>"; };
+		6D80C97B30173280006A98A1 /* CustomerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerController.swift; sourceTree = "<group>"; };
+		6D80C97D30173290006A98A1 /* BillController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		6D80C952301730D4006A98A1 /* Frameworks */ = {
@@ -31,6 +60,53 @@
 				6D80C957301730D4006A98A1 /* BillingApp */,
 				6D80C956301730D4006A98A1 /* Products */,
 			);
+			sourceTree = "<group>";
+		};
+		6D80C957301730D4006A98A1 /* BillingApp */ = {
+			isa = PBXGroup;
+			children = (
+				6D80C958A301730D4006A98A1 /* Model */,
+				6D80C958B301730D4006A98A1 /* View */,
+				6D80C958C301730D4006A98A1 /* Controller */,
+				6D80C9713017322B006A98A1 /* BillingAppApp.swift */,
+				6D80C959301730D4006A98A1 /* Assets.xcassets */,
+			);
+			path = BillingApp;
+			sourceTree = "<group>";
+		};
+		6D80C958A301730D4006A98A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6D80C96530173123006A98A1 /* Customer.swift */,
+				6D80C967A30173144006A98A1 /* Product.swift */,
+				6D80C967D30173144006A98A1 /* Transaction.swift */,
+				6D80C975A30173250006A98A1 /* LineItem.swift */,
+				6D80C97730173260006A98A1 /* ValidationService.swift */,
+				6D80C97930173270006A98A1 /* BillCalculator.swift */,
+				6D80C96730173144006A98A1 /* PrintManager.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		6D80C958B301730D4006A98A1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				6D80C969301731C4006A98A1 /* ContentView.swift */,
+				6D80C97F301732A0006A98A1 /* AddCustomerSheet.swift */,
+				6D80C96D301731F4006A98A1 /* CustomerDetailView.swift */,
+				6D80C96F30173208006A98A1 /* CreateBillView.swift */,
+				6D80C97330173245006A98A1 /* NeumorphicDesign.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		6D80C958C301730D4006A98A1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				6D80C97B30173280006A98A1 /* CustomerController.swift */,
+				6D80C97D30173290006A98A1 /* BillController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		6D80C956301730D4006A98A1 /* Products */ = {
@@ -55,9 +131,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				6D80C957301730D4006A98A1 /* BillingApp */,
 			);
 			name = BillingApp;
 			packageProductDependencies = (
@@ -116,6 +189,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D80C96630173123006A98A1 /* Customer.swift in Sources */,
+				6D80C967B30173144006A98A1 /* Product.swift in Sources */,
+				6D80C967C30173144006A98A1 /* Transaction.swift in Sources */,
+				6D80C97530173250006A98A1 /* LineItem.swift in Sources */,
+				6D80C97830173260006A98A1 /* ValidationService.swift in Sources */,
+				6D80C97A30173270006A98A1 /* BillCalculator.swift in Sources */,
+				6D80C96830173144006A98A1 /* PrintManager.swift in Sources */,
+				6D80C97C30173280006A98A1 /* CustomerController.swift in Sources */,
+				6D80C97E30173290006A98A1 /* BillController.swift in Sources */,
+				6D80C96A301731C4006A98A1 /* ContentView.swift in Sources */,
+				6D80C980301732A0006A98A1 /* AddCustomerSheet.swift in Sources */,
+				6D80C96E301731F4006A98A1 /* CustomerDetailView.swift in Sources */,
+				6D80C97030173208006A98A1 /* CreateBillView.swift in Sources */,
+				6D80C97430173245006A98A1 /* NeumorphicDesign.swift in Sources */,
+				6D80C9723017322B006A98A1 /* BillingAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
