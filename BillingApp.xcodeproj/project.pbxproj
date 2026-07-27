@@ -13,6 +13,7 @@
 		6D80C96E301731F4006A98A1 /* CustomerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C96D301731F4006A98A1 /* CustomerDetailView.swift */; };
 		6D80C97030173208006A98A1 /* CreateBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C96F30173208006A98A1 /* CreateBillView.swift */; };
 		6D80C9723017322B006A98A1 /* BillingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C9713017322B006A98A1 /* BillingAppApp.swift */; };
+		6D80C97430173245006A98A1 /* NeumorphicDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C97330173245006A98A1 /* NeumorphicDesign.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +24,7 @@
 		6D80C96D301731F4006A98A1 /* CustomerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerDetailView.swift; sourceTree = "<group>"; };
 		6D80C96F30173208006A98A1 /* CreateBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBillView.swift; sourceTree = "<group>"; };
 		6D80C9713017322B006A98A1 /* BillingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingAppApp.swift; sourceTree = "<group>"; };
+		6D80C97330173245006A98A1 /* NeumorphicDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphicDesign.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -54,6 +56,7 @@
 				6D80C96D301731F4006A98A1 /* CustomerDetailView.swift */,
 				6D80C96F30173208006A98A1 /* CreateBillView.swift */,
 				6D80C9713017322B006A98A1 /* BillingAppApp.swift */,
+				6D80C97330173245006A98A1 /* NeumorphicDesign.swift */,
 				6D80C956301730D4006A98A1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				6D80C9723017322B006A98A1 /* BillingAppApp.swift in Sources */,
 				6D80C96E301731F4006A98A1 /* CustomerDetailView.swift in Sources */,
 				6D80C97030173208006A98A1 /* CreateBillView.swift in Sources */,
+				6D80C97430173245006A98A1 /* NeumorphicDesign.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
