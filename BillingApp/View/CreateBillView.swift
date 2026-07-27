@@ -8,16 +8,6 @@
 import SwiftUI
 import SwiftData
 
-// Helper for line items in memory
-struct LineItem: Identifiable {
-    let id = UUID()
-    var product: Product
-    var quantity: Double
-    var lineTotal: Double {
-        quantity * product.pricePerUnit
-    }
-}
-
 struct CreateBillView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var customer: Customer
