@@ -7,36 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6D80C96630173123006A98A1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C96530173123006A98A1 /* Model.swift */; };
-		6D80C96830173144006A98A1 /* PrintManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C96730173144006A98A1 /* PrintManager.swift */; };
-		6D80C96A301731C4006A98A1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C969301731C4006A98A1 /* ContentView.swift */; };
-		6D80C96E301731F4006A98A1 /* CustomerDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C96D301731F4006A98A1 /* CustomerDetailView.swift */; };
-		6D80C97030173208006A98A1 /* CreateBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C96F30173208006A98A1 /* CreateBillView.swift */; };
-		6D80C9723017322B006A98A1 /* BillingAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C9713017322B006A98A1 /* BillingAppApp.swift */; };
-		6D80C97430173245006A98A1 /* NeumorphicDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C97330173245006A98A1 /* NeumorphicDesign.swift */; };
-		6D80C97630173250006A98A1 /* LineItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C97530173250006A98A1 /* LineItem.swift */; };
-		6D80C97830173260006A98A1 /* ValidationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C97730173260006A98A1 /* ValidationService.swift */; };
-		6D80C97A30173270006A98A1 /* BillCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C97930173270006A98A1 /* BillCalculator.swift */; };
-		6D80C97C30173280006A98A1 /* CustomerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C97B30173280006A98A1 /* CustomerController.swift */; };
-		6D80C97E30173290006A98A1 /* BillController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C97D30173290006A98A1 /* BillController.swift */; };
-		6D80C980301732A0006A98A1 /* AddCustomerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D80C97F301732A0006A98A1 /* AddCustomerSheet.swift */; };
+		6D80C955301730D4006A98A1 /* BillingApp.app in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D80C956301730D4006A98A1 /* BillingApp.app */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6D80C955301730D4006A98A1 /* BillingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BillingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6D80C96530173123006A98A1 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		6D80C96730173144006A98A1 /* PrintManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrintManager.swift; sourceTree = "<group>"; };
-		6D80C969301731C4006A98A1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		6D80C96D301731F4006A98A1 /* CustomerDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerDetailView.swift; sourceTree = "<group>"; };
-		6D80C96F30173208006A98A1 /* CreateBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBillView.swift; sourceTree = "<group>"; };
-		6D80C9713017322B006A98A1 /* BillingAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillingAppApp.swift; sourceTree = "<group>"; };
-		6D80C97330173245006A98A1 /* NeumorphicDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeumorphicDesign.swift; sourceTree = "<group>"; };
-		6D80C97530173250006A98A1 /* LineItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineItem.swift; sourceTree = "<group>"; };
-		6D80C97730173260006A98A1 /* ValidationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationService.swift; sourceTree = "<group>"; };
-		6D80C97930173270006A98A1 /* BillCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillCalculator.swift; sourceTree = "<group>"; };
-		6D80C97B30173280006A98A1 /* CustomerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerController.swift; sourceTree = "<group>"; };
-		6D80C97D30173290006A98A1 /* BillController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillController.swift; sourceTree = "<group>"; };
-		6D80C97F301732A0006A98A1 /* AddCustomerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCustomerSheet.swift; sourceTree = "<group>"; };
+		6D80C956301730D4006A98A1 /* BillingApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BillingApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -52,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D80C955301730D4006A98A1 /* BillingApp.app in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,19 +38,6 @@
 			isa = PBXGroup;
 			children = (
 				6D80C957301730D4006A98A1 /* BillingApp */,
-				6D80C96530173123006A98A1 /* Model.swift */,
-				6D80C97530173250006A98A1 /* LineItem.swift */,
-				6D80C97730173260006A98A1 /* ValidationService.swift */,
-				6D80C97930173270006A98A1 /* BillCalculator.swift */,
-				6D80C97B30173280006A98A1 /* CustomerController.swift */,
-				6D80C97D30173290006A98A1 /* BillController.swift */,
-				6D80C96730173144006A98A1 /* PrintManager.swift */,
-				6D80C969301731C4006A98A1 /* ContentView.swift */,
-				6D80C97F301732A0006A98A1 /* AddCustomerSheet.swift */,
-				6D80C96D301731F4006A98A1 /* CustomerDetailView.swift */,
-				6D80C96F30173208006A98A1 /* CreateBillView.swift */,
-				6D80C9713017322B006A98A1 /* BillingAppApp.swift */,
-				6D80C97330173245006A98A1 /* NeumorphicDesign.swift */,
 				6D80C956301730D4006A98A1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -82,7 +45,7 @@
 		6D80C956301730D4006A98A1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6D80C955301730D4006A98A1 /* BillingApp.app */,
+				6D80C956301730D4006A98A1 /* BillingApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,7 +72,7 @@
 			packageProductDependencies = (
 			);
 			productName = BillingApp;
-			productReference = 6D80C955301730D4006A98A1 /* BillingApp.app */;
+			productReference = 6D80C956301730D4006A98A1 /* BillingApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -162,19 +125,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6D80C96630173123006A98A1 /* Model.swift in Sources */,
-				6D80C97630173250006A98A1 /* LineItem.swift in Sources */,
-				6D80C97830173260006A98A1 /* ValidationService.swift in Sources */,
-				6D80C97A30173270006A98A1 /* BillCalculator.swift in Sources */,
-				6D80C97C30173280006A98A1 /* CustomerController.swift in Sources */,
-				6D80C97E30173290006A98A1 /* BillController.swift in Sources */,
-				6D80C96830173144006A98A1 /* PrintManager.swift in Sources */,
-				6D80C96A301731C4006A98A1 /* ContentView.swift in Sources */,
-				6D80C980301732A0006A98A1 /* AddCustomerSheet.swift in Sources */,
-				6D80C9723017322B006A98A1 /* BillingAppApp.swift in Sources */,
-				6D80C96E301731F4006A98A1 /* CustomerDetailView.swift in Sources */,
-				6D80C97030173208006A98A1 /* CreateBillView.swift in Sources */,
-				6D80C97430173245006A98A1 /* NeumorphicDesign.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
